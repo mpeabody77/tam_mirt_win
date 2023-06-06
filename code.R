@@ -167,3 +167,25 @@ plot(compare_b[,-1])
 plot(compare_outmsq[,-1])
 
 plot(compare_outz[,-1])
+
+
+
+# Other TAM fit -----------------------------------------------------------
+
+# The function msq.itemfit computes computed the outfit and infit statistic 
+# for items or item groups. Contrary to tam.fit, the function msq.itemfit is 
+# not based on simulation from individual posterior distributions but rather 
+# on evaluating the individual posterior.
+
+
+# this fit did not work for tam.jml...only tam.mml...not sure why.
+other_tam_fit <- TAM::msq.itemfit(tam_mml)$itemfit
+
+new_msq_plot <- other_tam_fit %>% 
+  select(item, Outfit) %>%
+  left_join(compare_outmsq, by = c("item" = "NAME")) 
+
+plot(new_msq_plot[,-1])  
+
+
+
