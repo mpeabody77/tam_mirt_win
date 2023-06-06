@@ -1,0 +1,64 @@
+; this is a WINSTEPS specification control file template.
+; Save it with your own name, e.g., control.txt
+
+; a semi-colon means a comment: remove semi-colons as needed.
+
+&INST
+
+ TITLE = "TAM_MIRT"
+
+;Input Data Format
+ NAME1 = 1       ; column of start of person information
+NAMLEN = 5      ; maximum length of person information
+ ITEM1 = 7       ; column of first item-level response
+    NI = 40      ; number of items = test length
+ XWIDE = 1       ; number of columns per response
+PERSON = Person  ; Persons are called ...
+  ITEM = Item    ; Items are called ...
+
+  DATA = "DAT.prn"        ; data after control specifications
+  CODES = "01"    ; valid response codes
+  XWIDE = 1   ; for all codes 00 to 99
+
+&END
+I1
+I2
+I3
+I4
+I5
+I6
+I7
+I8
+I9
+I10
+I11
+I12
+I13
+I14
+I15
+I16
+I17
+I18
+I19
+I20
+I21
+I22
+I23
+I24
+I25
+I26
+I27
+I28
+I29
+I30
+I31
+I32
+I33
+I34
+I35
+I36
+I37
+I38
+I39
+I40
+END LABELS
