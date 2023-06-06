@@ -20,11 +20,13 @@ tam_jml_b <- data.frame(tam_jml["item"])
 
 
 
+
+
 # TAM MML -----------------------------------------------------------------
 
 tam_mml <- TAM::tam.mml(resp=data )
 
-tam_mml_fit <- TAM::tam.fit(tam_jml)$fit.item
+tam_mml_fit <- data.frame(TAM::tam.fit(tam_mml)["itemfit"])
 
 tam_mml_b <- data.frame(tam_mml["item"])
 
@@ -84,12 +86,12 @@ JML <- tam_jml_b %>%
 
 
 MML <- tam_mml_b %>%
-  left_join(tam_mml_fit, by = c("item.item" = "item")) %>%
+  left_join(tam_mml_fit, by = c("item.item" = "itemfit.parameter")) %>%
   rename(NAME = item.item, 
          N.MML = item.N,
          B.MML = item.xsi.item,
-         OUT.MSQ.MML = outfitItem,
-         OUT.Z.MML = outfitItem_t) %>%
+         OUT.MSQ.MML = itemfit.Outfit,
+         OUT.Z.MML = itemfit.Outfit_t) %>%
   select(NAME, N.MML, B.MML, OUT.MSQ.MML, OUT.Z.MML)
 
 
@@ -186,6 +188,4 @@ new_msq_plot <- other_tam_fit %>%
   left_join(compare_outmsq, by = c("item" = "NAME")) 
 
 plot(new_msq_plot[,-1])  
-
-
 
