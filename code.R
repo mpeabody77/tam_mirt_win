@@ -189,3 +189,20 @@ new_msq_plot <- other_tam_fit %>%
 
 plot(new_msq_plot[,-1])  
 
+
+# Item Analysis -----------------------------------------------------------
+
+# calculate weighted likelihoods for the MML model
+wle <- TAM::tam.wle(tam_mml)
+
+# calculate CTT stats based on the weighted likelihood function
+stat1 <- TAM::tam.ctt( resp= data, wlescore = wle$theta )
+
+# IRF plots
+plotctt( resp=data, theta= wle$theta, Ncuts=5, ask=TRUE)
+
+plot(tam_mml, items=1:40, export=FALSE)
+
+
+
+
